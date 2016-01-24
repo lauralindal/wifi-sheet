@@ -15,8 +15,6 @@
   output {
     text-align: center;
   }
-
-
   output {
     font-size: 50px;
   }
@@ -37,5 +35,14 @@
     font-size: 14px;
     margin-top: 10px;
   }
-
+  input {
+        border: none;
+        border-bottom: 2px solid #000000;
+  }
+  .button{
+    display: none;
+  }
+  select{
+    display: none;
+  }
 }

@@ -12,7 +12,6 @@ function generateString() {
 function updateQRCode() {
   var text = generateString();
   var element = document.getElementById("qrcode");
-  var bodyElement = document.body;
   if(element.lastChild)
     element.replaceChild(showQRCode(text), element.lastChild);
   else

@@ -21,7 +21,7 @@
       <h1>Wifi Connection Sheet</h1>
       <section class="jumbotron">
         <label>SSID</label>
-        <input type="string" id="ssid" onkeyup='updateQRCode()'>
+        <input type="string" id="ssid" onkeyup='updateQRCode()' required>
         <br>
         <label>Password</label>
         <input type="password" id="password" onkeyup='updateQRCode()'>
@@ -40,7 +40,7 @@
 
       </section>
 
-      <button type="button" class="btn btn-default">Generate Print Version</button>
+      <button type="button" class="btn btn-default button" onclick="window.print()">Generate Print Version</button>
     </main>
   </body>
 
