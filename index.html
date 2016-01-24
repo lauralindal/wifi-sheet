@@ -1,64 +1,47 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<head>
-   <meta charset="UTF-8">
-   <title>Wifi Connection Sheet</title>
-   <style>
-      main {
-         display: flex;
-         flex-direction: column;
-         max-width: 333px;
-         margin: 0 auto;
-      }
+  <head>
+    <meta charset="UTF-8">
+    <title>Wifi Connection Sheet</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+    <script type="text/javascript" src="html5-qrcode.js"></script>
+    <link href="main.css" rel="stylesheet" type="text/css">
+  </head>
 
-      main > * {
-         display: block;
-         margin: 10px;
-      }
-
-      h1,
-      output {
-         text-align: center;
-      }
-
-      output {
-         font-size: 50px;
-      }
-   </style>
-   <script src="script.js"></script>
-   <script type="text/javascript" src="qrcode.js">
-    </script>
-    <script type="text/javascript" src="html5-qrcode.js">
-    </script>
-</head>
-
-<body>
-   <main>
-
+  <body>
+    <main class="section container">
       <h1>Wifi Connection Sheet</h1>
+      <section class="jumbotron">
+        <label>SSID</label>
+        <input type="string" id="ssid" onkeyup='updateQRCode()'>
+        <br>
+        <label>Password</label>
+        <input type="password" id="password" onkeyup='updateQRCode()'>
+        <br>
+        <select id="encryption" onchange='updateQRCode()'>
+          <option value="wpa2" selected>WPA 2</option>
+          <option value="wpa">WPA</option>
+          <option value="none">WEP or none</option>
+        </select>
+        <br>
+        <input type="checkbox" id="hidden" onchange='updateQRCode()'>
+        <label>hidden network</label>
 
-      <label>SSID</label>
-      <input type="string" id="ssid" onkeyup='updateQRCode()'>
+        <!-- This is where our QRCode will appear in. -->
+        <output id="qrcode"></output>
 
-      <label>Password</label>
-      <input type="password" id="password" onkeyup='updateQRCode()'>
+      </section>
 
-      <select id="encryption" onchange='updateQRCode()'>
-         <option value="wpa2" selected>WPA 2</option>
-         <option value="wpa">WPA</option>
-         <option value="none">WEP or none</option>
-      </select>
-
-      <label>hidden network</label>
-      <input type="checkbox" id="hidden" onchange='updateQRCode()'>
-
-      <!-- This is where our QRCode will appear in. -->
-    <output id="qrcode"></output>
-
-      <button type="button">Generate Print Version</button>
-
-   </main>
-</body>
+      <button type="button" class="btn btn-default">Generate Print Version</button>
+    </main>
+  </body>
 
 </html>

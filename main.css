@@ -1,0 +1,41 @@
+@media screen {
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: 20px;
+  }
+
+  main > * {
+    display: block;
+    margin: 10px;
+  }
+
+  h1,
+  output {
+    text-align: center;
+  }
+
+
+  output {
+    font-size: 50px;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.5cm;
+  }
+  body {
+    font: 12pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+  }
+  h1 {
+  font-size: 24pt;
+  }
+  label {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+}
