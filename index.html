@@ -23,15 +23,15 @@
         <form class="form-horizontal">
         <div class="form-group">
           <label for="ssid">SSID</label>
-          <input type="string" id="ssid" onkeyup='updateQRCode()' required>
+          <input type="string" id="ssid" onkeyup='reactToInput()' required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="string" id="password" onkeyup='updateQRCode()'>
+          <input type="string" id="password" onkeyup='reactToInput()'>
         </div>
         <div class="form-group">
           <label for="encryption">Encryption</label>
-          <select class="dropdown" id="encryption" onchange='updateQRCode()'>
+          <select class="dropdown" id="encryption" onchange='reactToInput()'>
             <option value="wpa2" selected>WPA 2</option>
             <option value="wpa">WPA</option>
             <option value="none">WEP or none</option>
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
           <div class="checkbox">
-            <label><input type="checkbox" id="hidden" onchange='updateQRCode()'>hidden network</label>
+            <label><input type="checkbox" id="hidden" onchange='reactToInput()'>hidden network</label>
           </div>
         </div>
       </fom>

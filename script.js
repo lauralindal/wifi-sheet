@@ -1,28 +1,38 @@
 document.addEventListener('DOMContentLoaded', init);
 
-function generateString() {
+function createWifiInfoObject() {
   var ssid = document.getElementById("ssid").value;
   var password = document.getElementById("password").value;
   var encryption = document.getElementById("encryption").value;
   var hidden = document.getElementById("hidden").checked;
-
-  return "WIFI:S:" + ssid + ";T:" + encryption + ";P:" + password + ";H:" + hidden + ";;"
+  return {'ssid': ssid, 'password': password, 'encryption': encryption, 'hidden': hidden}
 }
 
-function updateQRCode() {
-  var text = generateString();
+function generateString(wifiInfo) {
+  return "WIFI:S:" + wifiInfo.ssid + ";T:" + wifiInfo.encryption + ";P:" + wifiInfo.password + ";H:" + wifiInfo.hidden + ";;"
+}
+
+function reactToInput(){
+  var wifiInfo = createWifiInfoObject();
+  updateQRCode(wifiInfo);
+  populateStorage(wifiInfo.ssid, wifiInfo.encryption, wifiInfo.hidden);
+}
+
+function updateQRCode(wifiInfo) {
+  var text = generateString(wifiInfo);
   var element = document.getElementById("qrcode");
-  if(element.lastChild)
+  if(element.lastChild) {
     element.replaceChild(showQRCode(text), element.lastChild);
-  else
+  }
+  else {
     element.appendChild(showQRCode(text));
-  populateStorage();
+  }
 }
 
-function populateStorage() {
-  localStorage.setItem('ssid', document.getElementById('ssid').value);
-  localStorage.setItem('encryption', document.getElementById('encryption').value);
-  localStorage.setItem('hidden', document.getElementById('hidden').checked);
+function populateStorage(ssid, encryption, hidden) {
+  localStorage.setItem('ssid', ssid);
+  localStorage.setItem('encryption', encryption);
+  localStorage.setItem('hidden', hidden);
 }
 
 function setFromStorage() {
@@ -34,8 +44,6 @@ function setFromStorage() {
 function init() {
   if(!!localStorage.getItem('ssid')) {
     setFromStorage();
-    updateQRCode();
-  } else {
-    updateQRCode();
+    reactToInput();
   }
 }
