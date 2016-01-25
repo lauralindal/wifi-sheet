@@ -5,28 +5,28 @@
     max-width: 50%;
     margin: 20px;
   }
-
-  main > * {
-    display: block;
-    margin: 10px;
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
   }
-
-  h1,
   output {
     text-align: center;
   }
-  output {
-    font-size: 50px;
+  label {
+    margin-right: 10px;
   }
 }
 
 @media print {
   @page {
-    margin: 0.5cm;
+    margin: 3.5cm;
   }
   body {
     font: 12pt Georgia, "Times New Roman", Times, serif;
     line-height: 1.3;
+  }
+  main {
+    text-align: center;
   }
   h1 {
   font-size: 24pt;
@@ -34,15 +34,13 @@
   label {
     font-size: 14px;
     margin-top: 10px;
+    margin-right: 10px;
   }
   input {
         border: none;
         border-bottom: 2px solid #000000;
   }
   .button{
-    display: none;
-  }
-  select{
     display: none;
   }
 }

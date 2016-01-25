@@ -20,20 +20,29 @@
     <main class="section container">
       <h1>Wifi Connection Sheet</h1>
       <section class="jumbotron">
-        <label>SSID</label>
-        <input type="string" id="ssid" onkeyup='updateQRCode()' required>
-        <br>
-        <label>Password</label>
-        <input type="password" id="password" onkeyup='updateQRCode()'>
-        <br>
-        <select id="encryption" onchange='updateQRCode()'>
-          <option value="wpa2" selected>WPA 2</option>
-          <option value="wpa">WPA</option>
-          <option value="none">WEP or none</option>
-        </select>
-        <br>
-        <input type="checkbox" id="hidden" onchange='updateQRCode()'>
-        <label>hidden network</label>
+        <form class="form-horizontal">
+        <div class="form-group">
+          <label for="ssid">SSID</label>
+          <input type="string" id="ssid" onkeyup='updateQRCode()' required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="string" id="password" onkeyup='updateQRCode()'>
+        </div>
+        <div class="form-group">
+          <label for="encryption">Encryption</label>
+          <select class="dropdown" id="encryption" onchange='updateQRCode()'>
+            <option value="wpa2" selected>WPA 2</option>
+            <option value="wpa">WPA</option>
+            <option value="none">WEP or none</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+            <label><input type="checkbox" id="hidden" onchange='updateQRCode()'>hidden network</label>
+          </div>
+        </div>
+      </fom>
 
         <!-- This is where our QRCode will appear in. -->
         <output id="qrcode"></output>
